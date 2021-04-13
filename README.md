@@ -197,3 +197,7 @@ First Run the server. Go to the server folder and run this command
 Run the client. Go to the client folder and run this command
 
 		npm start
+		
+		
+## Application Running
+![Screen Shot Example](images/App_running.png)
