@@ -45,7 +45,7 @@ function uploadFile(file){
   return s3.upload(uploadParams).promise()
 }
 
-
+// To insert file
 app.post('/api/insert/',upload.single('actualFile'), async(req,res) => {
   const file = req.file
   console.log(file)
@@ -54,6 +54,7 @@ app.post('/api/insert/',upload.single('actualFile'), async(req,res) => {
   
 });
 
+//To get files
 app.get('/api/get', (req,res)=>{
     var bucketParams = {
       Bucket : bucketName,
@@ -69,6 +70,8 @@ app.get('/api/get', (req,res)=>{
     });   
 });
 
+
+//To download file
 app.get("/api/download/:Key", (req,res)=>{
   const name = req.params.Key;
   var downnloadBucketParams = {
@@ -80,13 +83,15 @@ var url = s3.getSignedUrl('getObject', downnloadBucketParams);
 res.send(url) 
 });
 
+
+//To delete objects
 app.get("/api/delete/:Key", (req,res)=>{
   const name = req.params.Key;
   var bucketParams = {
     Bucket : bucketName,
     Key: name
   };
-  // Call S3 to obtain a list of the objects in the bucket
+  // Call S3 to delete the objects in the bucket
   s3.deleteObject(bucketParams, function(err, data) {
     if (err) {
       console.log("Error", err);
@@ -98,6 +103,8 @@ app.get("/api/delete/:Key", (req,res)=>{
   });
 });
 
+
+//To view file
 app.get("/api/view/:Key", (req,res)=>{
   const name = req.params.Key;
   var bucketParams = {
