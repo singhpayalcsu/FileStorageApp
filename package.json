@@ -1,0 +1,30 @@
+{
+  "name": "filestorageapp",
+  "version": "1.0.0",
+  "description": "This is a file application. It uses AWS S3 bucket to store files. The following operations are supported by this application:",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "devStart": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singhpayalcsu/FileStorageApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/singhpayalcsu/FileStorageApp/issues"
+  },
+  "homepage": "https://github.com/singhpayalcsu/FileStorageApp#readme",
+  "dependencies": {
+    "aws-sdk": "^2.892.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7"
+  }
+}
