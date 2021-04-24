@@ -5,7 +5,8 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
-
+var path = require('path');
+const PORT = process.env.PORT || 5000
 
 
 require('dotenv').config()
@@ -31,7 +32,7 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 function uploadFile(file){
   const fileStream = fs.createReadStream(file.path)
@@ -125,6 +126,6 @@ app.get("/api/view/:Key", (req,res)=>{
 
 
 
-app.listen(3001,()=>{
-    console.log("running on port 3001")
+app.listen(PORT,()=>{
+    console.log("running on port 5000")
 });

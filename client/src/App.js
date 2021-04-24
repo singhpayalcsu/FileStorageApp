@@ -10,7 +10,7 @@ const [file, setFile] = useState()
 const [data, setData] = useState([])
 
 useEffect(()=>{
-  Axios.get('http://localhost:3001/api/get').then((response)=>{
+  Axios.get('api/get').then((response)=>{
     setKeyList(response.data.Contents)
   })
 },[])
@@ -19,13 +19,13 @@ useEffect(()=>{
 async function postImage({actualFile}) {
   const formData = new FormData();
   formData.append("actualFile", actualFile)
-  const result = await axios.post('http://localhost:3001/api/insert/', formData, { headers: {'Content-Type': 'multipart/form-data'}})
+  const result = await axios.post('api/insert/', formData, { headers: {'Content-Type': 'multipart/form-data'}})
   return result.data
 }
 
 
 const downloadKey = (Key) =>{
-   Axios.get(`http://localhost:3001/api/download/${Key}`)
+   Axios.get(`api/download/${Key}`)
   
     .then((response) =>{
         
@@ -43,7 +43,7 @@ const downloadKey = (Key) =>{
 
 
 const deleteKey = (Key) =>{
-  Axios.get(`http://localhost:3001/api/delete/${Key}`)
+  Axios.get(`api/delete/${Key}`)
  
    .then((response) =>{
      console.log(response.data)
@@ -53,7 +53,7 @@ const deleteKey = (Key) =>{
 
 
 const viewFile = (Key) =>{
-  Axios.get(`http://localhost:3001/api/view/${Key}`)
+  Axios.get(`api/view/${Key}`)
     .then((response) =>{
       console.log(response.data)
     });
