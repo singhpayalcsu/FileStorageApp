@@ -88,7 +88,7 @@ const fileSelected = event => {
         <h1>FileName: {val.Key} </h1>
         <button onClick={() =>{downloadKey(val.Key)} }>Download</button> 
         <button onClick={()=>{deleteKey(val.Key)}}>Delete</button>
-        <button onClick={()=>{viewFile(val.Key)}}>View</button>
+        
         </div> 
         )
         
